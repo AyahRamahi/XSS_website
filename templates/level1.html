@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <title>Search</title>
+    </head>
+    <body>
+        <form action="{{ url_for('level1') }}" method="POST">
+            <input name="search">
+            <button>Search</button>
+        </form>
+        {% if search %}
+        <h3>{{ query|safe }} is not found</h3>
+        {% endif %}
+    </body>
+</html>
