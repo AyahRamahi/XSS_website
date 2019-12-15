@@ -30,7 +30,8 @@ def level1():
 @app.route('/level2', methods=["POST","GET"])
 def level2():
     if request.method == "POST":
-        comments.append(request.form['comment'])
+        if request.form['comment'].find('<script>') == -1:
+            comments.append(request.form['comment'])
     return render_template('level2.html',list=comments)
 
 if __name__ == '__main__':
